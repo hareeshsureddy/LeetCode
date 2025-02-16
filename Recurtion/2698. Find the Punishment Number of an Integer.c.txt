@@ -1,0 +1,35 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby,
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdbool.h>
+bool check(int sq,int cursum, int num)
+{
+	if (sq == 0)
+		return cursum==num;
+	return check(sq/10,sq%10+cursum,num)||
+	       check(sq/100,sq%100+cursum,num)||
+	       check(sq/1000,sq%1000+cursum,num)||
+	       check(sq/10000,sq%10000+cursum,num);
+}
+int main()
+{
+	int num,result=0;
+	scanf("%d",&num);
+	for (int i=1; i<=num; i++)
+	{
+		int sq=i*i;
+		if (check(sq,0,i)==true)
+		{
+			result+=sq;
+			printf("%d\t",i);
+		}
+	}
+	printf("%d", result);
+	return 0;
+}
