@@ -1,0 +1,101 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby,
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+int numOfSubarrays(int* arr, int arrSize) {
+	long int OddCount=0;
+	/* Brute force T.c = O(n^3) S.C = O(1) */
+	/*
+	for (int k=0; k<arrSize; k++)
+	{
+		for (int i=k; i<arrSize; i++)
+		{
+		    int sum=0;
+			for (int j=k; j<=i; j++)
+			{
+				printf("%d  ",arr[j]);
+				sum+=arr[j];
+			}
+			if(sum%2!=0)
+			OddCount++;
+			printf("\n");
+		}
+		printf("\n");
+	}
+	*/
+	/* Better brute forec T.C = O(n^2) & S.C= O(1)*/
+	/*
+	int OddCount=0;
+	for (int i=0; i<arrSize;i++)
+	{
+	    int sum=0;
+	    for (int j=i;j<arrSize;j++)
+	    {
+	        sum+=arr[j];
+			if(sum%2!=0)
+			OddCount++;
+	    }
+
+	}
+	*/
+	/* Brute force T.c = O(n) S.C = O(n) */
+	/*
+	long int SumArray[arrSize+1];
+	SumArray[0]=arr[0];
+	int odd_cnt=0,evn_cnt=1;
+	for(int i=1; i<=arrSize; i++)
+	{
+		SumArray[i]=SumArray[i-1]+arr[i-1];
+		if (SumArray[i-1]%2!=0)
+		{
+			odd_cnt++;
+			OddCount+=evn_cnt;
+		}
+		else
+		{
+			evn_cnt++;
+			OddCount+=odd_cnt;
+		}
+	}
+	*/
+	/* T.C = O(n) & S.C = O(1) */
+	long int SumArray=0;
+	int odd_cnt=0,evn_cnt=1;
+	for(int i=1; i<=arrSize; i++)
+	{
+		SumArray+=arr[i-1];
+		if (SumArray%2!=0)
+		{
+			odd_cnt++;
+			OddCount+=evn_cnt;
+		}
+		else
+		{
+			evn_cnt++;
+			OddCount+=odd_cnt;
+		}
+	}
+	return (int)(OddCount % 1000000007);
+	/*
+	long long oddCount = 0, prefixSum = 0;
+	for(int i = 0; i < arrSize; i++) {
+	    prefixSum += arr[i];
+	    oddCount += prefixSum % 2;
+	}
+	oddCount += (arrSize - oddCount) * oddCount;
+	return (int)(oddCount % 1000000007);
+	*/
+}
+int main()
+{
+	int Array[]= {1,3,5};
+	int ArraySize=sizeof(Array)/sizeof(Array[0]);
+	printf("Odd sub array count is %d ",	numOfSubarrays(Array,ArraySize));
+
+	return 0;
+}
