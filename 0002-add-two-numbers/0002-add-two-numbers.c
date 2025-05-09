@@ -6,7 +6,7 @@
  * };
  */
  /* Adding a node at the end of the given linked list in an efficient way*/
- /*
+
 struct ListNode* AddingNode_atEnd_1(struct ListNode *ptr,int data){
     struct ListNode *temp=malloc(sizeof(struct ListNode));
     while(ptr->next!=NULL){
@@ -19,6 +19,27 @@ struct ListNode* AddingNode_atEnd_1(struct ListNode *ptr,int data){
 }
 
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+    int sum=0,carry=0,num1,num2;
+    sum=l1->val+l2->val;
+    carry=sum/10;
+    struct ListNode* Temp=malloc(sizeof(struct ListNode));
+    Temp->val=sum%10;
+    Temp->next=NULL;
+    l1=l1->next;
+    l2=l2->next;
+    struct ListNode* Temp1=Temp;
+    while(l1 || l2){
+        num1=(l1!=NULL)?l1->val:0;
+        num2=(l2!=NULL)?l2->val:0;
+        sum=num1+num2+carry;
+        carry=sum/10;
+        Temp1=AddingNode_atEnd_1(Temp1,sum%10);
+        l1=(l1!=NULL)?l1->next:NULL;
+        l2=(l2!=NULL)?l2->next:NULL;
+    }
+    if (carry)
+    Temp1=AddingNode_atEnd_1(Temp1,carry%10);
+    /*
     int num1=0,num2=0;
     int i=1;
     do{
@@ -42,9 +63,11 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
         Temp1=AddingNode_atEnd_1(Temp1,sum%10);
         sum/=10;
     }
+    */
     return Temp;
 }
-*/
+
+/*
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode* dummyHead = malloc(sizeof(struct ListNode));
     dummyHead->val = 0;
@@ -66,4 +89,4 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode* result = dummyHead->next;
     free(dummyHead);  // Free the memory allocated for dummyHead
     return result;
-} 
+} */
