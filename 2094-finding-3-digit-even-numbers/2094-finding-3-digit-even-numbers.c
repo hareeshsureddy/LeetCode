@@ -86,9 +86,7 @@ int* findEvenNumbers(int* digits, int digitsSize, int* returnSize) {
             map[j]--;
             for (int k=0;k<=8;k+=2){
                 if (map[k]==0) continue;
-                map[k]--;
                 result[index++]=100*i+10*j+k;
-                map[k]++;
             }
             map[j]++;
         }
