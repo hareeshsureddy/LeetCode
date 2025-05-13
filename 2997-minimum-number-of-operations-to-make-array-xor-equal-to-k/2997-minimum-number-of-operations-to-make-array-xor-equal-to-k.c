@@ -6,8 +6,12 @@ int minOperations(int* nums, int numsSize, int k) {
     XoR^=k;
     int result=0;
     while(XoR){
+      /*
         XoR&=(XoR-1);
         result++;
+        */
+        result+=(XoR&1);
+        XoR>>=1;
     }
     return result;
 }
