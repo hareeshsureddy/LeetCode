@@ -1,6 +1,6 @@
 int minOperations(int* nums, int numsSize, int k) {
-   int XoR=0;
-   for (int i=0;i<numsSize;i++){
+   int XoR=nums[0];
+   for (int i=1;i<numsSize;i++){
         XoR^=nums[i];
     }
     XoR^=k;
