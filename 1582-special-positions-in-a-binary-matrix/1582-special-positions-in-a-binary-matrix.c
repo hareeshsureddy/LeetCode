@@ -14,6 +14,7 @@ int numSpecial(int** mat, int matSize, int* matColSize) {
                     csum+=mat[k][j];
                     if (csum>1) break;
                 }
+                if (csum>1) break;
                 if (csum==1 && rsum==1) result++;
             }
         }
