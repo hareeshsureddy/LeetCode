@@ -1,5 +1,17 @@
 char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
-    char **src=(char**)malloc(pathsSize*sizeof(char**));
+  char *src;
+      for (int i=0;i<pathsSize;i++){
+        src=paths[i][1];
+        int j;
+        for (j=0;j<pathsSize;j++){
+            if (strcmp(paths[j][0],src)==0)
+            break;
+        }
+        if( j==pathsSize)
+        return paths[i][1];  
+      }
+  /* 
+  char **src=(char**)malloc(pathsSize*sizeof(char**));
     for (int i=0;i<pathsSize;i++){
         src[i]=paths[i][0];
     }
@@ -11,6 +23,6 @@ char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
         }
         if( j==pathsSize)
         return paths[i][1];
-    }
+    }     */
     return "";
 }
