@@ -28,11 +28,16 @@ void quickSort(int *nums,int start,int end){
             quickSort(nums,pi+1,end);
         }
 }
+void swap(int *nums,uint16_t idx1, uint16_t idx2){
+        uint16_t temp=nums[idx1];
+        nums[idx1]=nums[idx2];
+        nums[idx2]=temp;
+}
 void sortColors(int* nums, int numsSize) {
    /*Approach-1*/
    // quickSort(nums,0,numsSize-1);
    /*Approach-2*/
-  // /*
+  /*
    uint16_t cnt[3]={0};
    for (uint16_t i=0;i<numsSize;i++){
     cnt[nums[i]]++;
@@ -44,7 +49,18 @@ void sortColors(int* nums, int numsSize) {
    nums[index++]=1;   
    while(cnt[2]--)
    nums[index++]=2;
-  // */
+  */
    /*Approach-3*/
-
+    int16_t i=0,j=0,k=numsSize-1;
+    while(j<=k){
+        if(nums[j]==0){
+            swap(nums,i,j);
+            j++;
+            i++;
+        }else if(nums[j]==2){
+            swap(nums,k,j);
+            k--;
+        }else 
+        {j++;}
+    }
 }
