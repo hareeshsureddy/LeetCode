@@ -23,7 +23,7 @@ int minOperations(char* s) {
          result2++;  
         } */
         //Method-3
-        if(i&1){
+    /*    if(i&1){
         if(s[i]!='1')
         result1++;
         else
@@ -33,7 +33,16 @@ int minOperations(char* s) {
          result1++;
          else
          result2++;
+        }                       */
+        //Method-4  
+        if(i&1){
+        if(s[i]!='1')
+        result1++;
+        }else{
+         if(s[i]!='0') 
+         result1++;
         }  
     }
+    result2=len-result1;
     return (result1<result2)?result1:result2;
 }
