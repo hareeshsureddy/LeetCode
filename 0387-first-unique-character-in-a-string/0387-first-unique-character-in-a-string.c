@@ -4,7 +4,7 @@ int firstUniqChar(char* s) {
     for (int i=0;i<len;i++){
         map[s[i]-'a']++;
     }
-    for (int i=0;i<len;i++){
+    for (int i=0;s[i]!='\0';i++){
         if(map[s[i]-'a']==1) return i;
     }
     return -1;
