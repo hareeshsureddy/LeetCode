@@ -32,16 +32,10 @@ void sortColors(int* nums, int numsSize) {
    /*Approach-1*/
    // quickSort(nums,0,numsSize-1);
    /*Approach-2*/
+  // /*
    uint16_t cnt[3]={0};
    for (uint16_t i=0;i<numsSize;i++){
-    if(nums[i]){
-        if(nums[i]==1)
-        cnt[1]++;
-        else
-        cnt[2]++;
-    }
-    else
-    cnt[0]++;
+    cnt[nums[i]]++;
    }
    uint16_t index=0;
    while(cnt[0]--)
@@ -50,4 +44,7 @@ void sortColors(int* nums, int numsSize) {
    nums[index++]=1;   
    while(cnt[2]--)
    nums[index++]=2;
+  // */
+   /*Approach-3*/
+
 }
