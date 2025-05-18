@@ -1,5 +1,9 @@
 bool makeEqual(char** words, int wordsSize) {
-    int map[26]={0};
+    int map[26]={0},len=0;
+    for (uint8_t i=0;i<wordsSize;i++){
+        len+=strlen(words[i]);
+    }
+    if(len%wordsSize!=0) return false;
     for (uint8_t i=0;i<wordsSize;i++){
         uint8_t index=0;
         while(words[i][index]){
