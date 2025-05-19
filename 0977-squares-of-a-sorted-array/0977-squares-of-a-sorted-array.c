@@ -19,8 +19,12 @@ int* sortedSquares(int* nums, int numsSize, int* returnSize) {
     return nums;
     */
     int *result=(int*)malloc(numsSize*sizeof(int));
-    for(int i=0;i<numsSize;i++){
-        nums[i]=pow(abs(nums[i]),2);
+    int k=0;
+    for(;k<numsSize && nums[k]<0;k++){
+        nums[k]=pow(abs(nums[k]),2);
+    }
+    for(;k<numsSize;k++){
+        nums[k]=pow(nums[k],2);
     }
     int i=0,j=numsSize-1;
     int index=j;
