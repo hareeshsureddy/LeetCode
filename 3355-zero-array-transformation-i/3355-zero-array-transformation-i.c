@@ -10,9 +10,8 @@ bool isZeroArray(int* nums, int numsSize, int** queries, int queriesSize, int* q
         sum-=minus;
     }
     return false; */
-    int *prefixSum=(int*)calloc(numsSize,sizeof(int));
+    int *prefixSum=(int*)calloc(numsSize+1,sizeof(int));
     for (int i=0;i<queriesSize;i++){
-        if(queries[i][1]+1<numsSize)
         prefixSum[queries[i][1]+1]-=1;
         prefixSum[queries[i][0]]+=1;
     }
