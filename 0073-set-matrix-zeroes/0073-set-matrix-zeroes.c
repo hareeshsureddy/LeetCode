@@ -32,8 +32,9 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     }
     //corner case handling
     if(FirstRow){
-        for( int i=0;i<(*matrixColSize);i++)
-        matrix[0][i]=0;
+        //for( int i=0;i<(*matrixColSize);i++)
+        //matrix[0][i]=0;
+        memset(&matrix[0][0],0,(*matrixColSize)*sizeof(int));
     }
     if(FirstColom)
         for( int i=0;i<matrixSize;i++){
