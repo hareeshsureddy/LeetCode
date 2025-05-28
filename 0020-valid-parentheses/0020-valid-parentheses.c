@@ -1,4 +1,4 @@
-/* bool isValid(char* s) {
+bool isValid(char* s) {
    char stack[strlen(s)];
    int top=-1;
    for (int i=0;s[i];i++){
@@ -9,19 +9,19 @@
         stack[++top]=s[i];
         break;
         case ')':
-        if(stack[top]=='(' && top!=-1)
+        if(top!=-1 && stack[top]=='(')
         top--;
         else
         return false;
         break;
         case '}':
-        if(stack[top]=='}' && top!=-1)
+        if(top!=-1 && stack[top]=='{')
         top--;
         else
         return false;
         break;
         case ']':
-        if(stack[top]==']' && top!=-1)
+        if(top!=-1 && stack[top]=='[')
         top--;
         else
         return false;
@@ -30,8 +30,8 @@
     }
    }
    return (top==-1);
-} */
-
+} 
+/*
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
@@ -54,4 +54,4 @@ bool isValid(char * s) {
         }
     }
     return top == -1; // Valid if stack is empty
-}
+}   */
