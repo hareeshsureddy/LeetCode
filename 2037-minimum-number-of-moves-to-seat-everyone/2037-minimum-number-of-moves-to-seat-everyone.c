@@ -11,13 +11,16 @@ int minMovesToSeat(int* seats, int seatsSize, int* students, int studentsSize) {
         map2[students[i]]++;
     }
     int i=0,j=0;
-    while(i<101 && j<101){
+    //while(i<101 && j<101){
+        while(seatsSize){
         if(map1[i]==0) i++;
         if(map2[j]==0) j++;
-        if(i<101 && j<101 && map1[i]!=0 && map2[j]!=0){
+    //    if(i<101 && j<101 && map1[i]!=0 && map2[j]!=0){
+        if(map1[i]!=0 && map2[j]!=0){
             result+=abs(i-j);
             map1[i]--;
             map2[j]--;
+            seatsSize--;
         }
     }
     return result;
