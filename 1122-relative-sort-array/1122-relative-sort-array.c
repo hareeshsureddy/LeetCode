@@ -23,8 +23,10 @@ int* relativeSortArray(int* arr1, int arr1Size, int* arr2, int arr2Size, int* re
         }
     }
     for(int i=0;i<1001;i++){
-        if(map[i])
-        result[index++]=i;
+        while(map[i]){
+            result[index++]=i;
+            map[i]--;
+        }
     }
     return result;
     /*
