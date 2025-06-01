@@ -1,5 +1,7 @@
 bool isPowerOfThree(int n) {
     if(n<1) return false;
+    //Method-0
+    return fmod(log(n) / log(3), 1) == 0;
     //Method-1
     // computing power
     double p = log10(n) / log10(3);
