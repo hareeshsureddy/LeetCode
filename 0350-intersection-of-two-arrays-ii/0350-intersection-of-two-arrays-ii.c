@@ -11,6 +11,7 @@ int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* return
         while(map[nums2[i]]){
             nums1[index++]=nums2[i];
             map[nums2[i]]--;
+            break;
         }
     }
     *returnSize=index;
