@@ -7,7 +7,7 @@ int romanToInt(char* s) {
             sum+=4;
             i++;
             }
-            else if(s[i+1]=='x'){
+            else if(s[i+1]=='X'){
             sum+=9;
             i++;
             }
@@ -47,38 +47,6 @@ int romanToInt(char* s) {
         else
         sum+=1000;
         i++;
-        /*
-        if(s[i]=='V')
-        sum+=5;
-        else if(s[i]=='X')
-        sum+=10;
-        else if(s[i]=='L')
-        sum+=50;
-        else if(s[i]=='C')
-        sum+=100;
-        else if(s[i]=='D')
-        sum+=500;
-        else if(s[i]=='M')
-        sum+=1000;
-        else {
-           if(s[i]!='I'){
-         if(s[i]=='V')
-            sum-=4;
-        else if(s[i]=='X')
-        sum-=9;
-        else if(s[i]=='L')
-        sum-=40;
-        else if(s[i]=='C')
-        sum-=90;
-        else if(s[i]=='D')
-        sum-=400;
-        else if(s[i]=='M')
-        sum-=900;           
-           }
-           else
-           sum+=1;
-        }
-        i++; */
     }
     return sum;
 }
