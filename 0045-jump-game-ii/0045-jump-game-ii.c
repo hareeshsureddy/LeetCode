@@ -4,6 +4,7 @@ int jump(int* nums, int numsSize) {
         int far=0;
         for (int i=l;i<=r;i++){
             far=fmax(far,i+nums[i]);
+            if(far>=numsSize-1) break;
         }
         l=r+1;
         r=far;
