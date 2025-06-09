@@ -1,6 +1,6 @@
 
 #define hareesh     0xFF
-
+/*
 int countConsistentStrings(char * allowed, char ** words, int wordsSize){
     #if (hareesh==0x00)
         // allowedBits will represent the bitmask of allowed characters
@@ -63,4 +63,24 @@ int countConsistentStrings(char * allowed, char ** words, int wordsSize){
         }
 
         return wordsSize-consistentCount;
+    }*/
+    int countConsistentStrings(char * allowed, char ** words, int wordsSize){
+        uint32_t org=0,result=0;
+        int i=0;
+        while(allowed[i]){
+            org|=(1<<(allowed[i]-'a'));
+            i++;
+        }
+        i=0;
+        for(;i<wordsSize;i++){
+            int j=0,temp=0;
+            while(words[i][j]){
+            temp|=(1<<(words[i][j]-'a'));
+            j++;
+        }
+        temp|=org;
+        if(!(temp^org))
+        result++;
+        }
+        return result;
     }
