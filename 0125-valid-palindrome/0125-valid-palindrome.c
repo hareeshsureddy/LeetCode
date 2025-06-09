@@ -1,4 +1,4 @@
-/* bool isPalindrome(char* s) {
+bool isPalindrome(char* s) {
     int len=strlen(s);
     int i=0,j=len-1;
     while(s[i]!='\0'){
@@ -7,10 +7,10 @@
     }
     i=0;
     while(i<j){
-        while(i<len && !(s[i]-'A'>=0) && !(s[i]-'A'<=25) ){
+        while(i<len && !(isalnum(s[i])) ){
                 i++;
         }
-        while(j>=0 && !(s[j]-'A'>=0) && !(s[j]-'A'<=25) ){
+        while(j>=0 && !(isalnum(s[j])) ){
                 j--;
         }
         if(i<len && j>=0 && s[j]!=s[i])  return false;
@@ -21,7 +21,8 @@
         }
     }
     return true;
-} */
+} 
+/*
 bool isPalindrome(char* s) {
     if(s==" "){
         return true;
@@ -44,4 +45,4 @@ bool isPalindrome(char* s) {
     if(strcmp(dest,S)==0)
     return true;
     return false;
-}
+} */
