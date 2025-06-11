@@ -1,8 +1,8 @@
 bool checkIfExist(int* arr, int arrSize) {
-    /* //Time efficient
+    //Time efficient
     int map[2001]={0};
     int zeroCnt=0;
-    for(int i=0;i<arrSize;i++){
+/* for(int i=0;i<arrSize;i++){
         if(!(arr[i]&1)){
         if(map[1000+arr[i]])
         return true;
@@ -13,16 +13,31 @@ bool checkIfExist(int* arr, int arrSize) {
         }
         if(-501<arr[i] && arr[i]<501)
         map[1000+(arr[i]*2)]=1;
-    }
+    } */
     for(int i=0;i<arrSize;i++){
+        if(!(arr[i]&1)){
+        if(map[1000+arr[i]/2])
+        return true;
+        } 
+        if(-501<arr[i] && arr[i]<501){
+          if(map[1000+arr[i]*2])
+            return true;          
+        }
+        if(!arr[i]){
+            zeroCnt++;
+            continue;
+        }
+        map[1000+arr[i]]=1;
+    }     
+   /* for(int i=0;i<arrSize;i++){
          if(!(arr[i]&1)){
         if(map[1000+arr[i]])
         return true;
         }       
-    }
+    } */
     if(zeroCnt>1)   return true;
     return false;
-    */
+    /* //Space efficient
     for( int i=0;i<arrSize;i++){
         for( int j=0;j<arrSize;j++){
             if(i==j) continue;
@@ -34,4 +49,5 @@ bool checkIfExist(int* arr, int arrSize) {
         }
     }
     return false;
+    */
 }
