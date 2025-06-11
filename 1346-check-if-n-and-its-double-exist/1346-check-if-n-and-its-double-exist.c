@@ -1,4 +1,5 @@
 bool checkIfExist(int* arr, int arrSize) {
+    /* //Time efficient
     int map[2001]={0};
     int zeroCnt=0;
     for(int i=0;i<arrSize;i++){
@@ -20,5 +21,17 @@ bool checkIfExist(int* arr, int arrSize) {
         }       
     }
     if(zeroCnt>1)   return true;
+    return false;
+    */
+    for( int i=0;i<arrSize;i++){
+        for( int j=0;j<arrSize;j++){
+            if(i==j) continue;
+            if(arr[i]<501 && arr[i]>-501){
+                if(2*arr[i]==arr[j]) return true;
+            } else{
+                if(arr[i]==arr[j]*2) return true;
+            }
+        }
+    }
     return false;
 }
