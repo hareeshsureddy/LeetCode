@@ -1,6 +1,4 @@
 
-#include <math.h>
-#include <stdlib.h>
 /*
 void heapify(int* gifts, int giftsSize, int i) {
     int largest = i;
