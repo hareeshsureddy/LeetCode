@@ -10,8 +10,10 @@ int minMaxDifference(int num) {
  int max=0;
  int j=i-1;
  for (;j>=0;j--){
-    if(arr[j]!=9)
+    if(arr[j]!=9){
     max=arr[j];
+    break;
+    }
  }
  int maxNum=0;
   for (j=0;j<i;j++){
@@ -30,7 +32,7 @@ int minMaxDifference(int num) {
  int minNum=0;
    for (j=0;j<i;j++){
     if(arr[j]==min)
-    arr[j]=0;
+        arr[j]=0;
     minNum+=arr[j]*pow(10,j);
  }
  return maxNum-minNum;
