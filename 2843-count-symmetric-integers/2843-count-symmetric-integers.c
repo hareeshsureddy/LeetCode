@@ -6,8 +6,12 @@ int countSymmetricIntegers(int low, int high) {
             continue;
         }
         int digitCnt=0;
-        if(low>=10 && low<=99)
-         digitCnt=2;
+        if(low>=10 && low<=99){
+            if(low%11==0)
+            symmetricCnt++;
+            low++;
+            continue;
+        }
          else
          digitCnt=4;
          if(low==10000) break;
