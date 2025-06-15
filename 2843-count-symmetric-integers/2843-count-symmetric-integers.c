@@ -5,7 +5,15 @@ int countSymmetricIntegers(int low, int high) {
             low=1001;
             continue;
         }
-        int digitCnt=(int)log10(fabs(low)) + 1;
+        int digitCnt=0;
+        if(low>=10 && low<=99)
+         digitCnt=2;
+         else
+         digitCnt=4;
+         if(low==10000) break;
+        /*
+        digitCnt=(int)log10(fabs(low)) + 1;
+        */
         int temp=low;
     /*    while(temp){
             temp=temp/10;
