@@ -54,16 +54,16 @@ givenSum-actualSum =a-b
 *b=a-givenSum-actualSum;*/
 int* findMissingAndRepeatedValues(int** grid, int gridSize, int* gridColSize, int* returnSize) {
     int *result=(int*)malloc(2*sizeof(int));
-    int n=(gridSize*gridSize);
-    int actualSum =(n*(n+1))/2;
-    int givenSum=0,givenSquareSum=0;
+    long long n=(gridSize*gridSize);
+    long long  actualSum =(n*(n+1))/2;
+    long long  givenSum=0,givenSquareSum=0;
       for(int i=0;i<gridSize;i++){
         for (int j=0;j<gridSize;j++){
             givenSum+=grid[i][j];
             givenSquareSum+=(grid[i][j]*grid[i][j]);
         }
     }
-    int actualSquareSum=(n*(n+1)*(2*n+1))/6;
+    long long  actualSquareSum=((n*(n+1)*(2*n+1))/6);
 result[0]=((givenSum-actualSum)+((givenSquareSum-actualSquareSum)/ (givenSum-actualSum)))/2;
 result[1]=result[0]-givenSum+actualSum;
     *returnSize=2;
