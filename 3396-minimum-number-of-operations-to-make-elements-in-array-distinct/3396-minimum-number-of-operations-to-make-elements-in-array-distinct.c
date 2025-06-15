@@ -14,6 +14,6 @@ int minimumOperations(int* nums, int numsSize) {
     i--;
     if(i-j<=1 && map[nums[i]]>1) result++;
     else
-    if(map[nums[j]]>1) result++;
+    if(j<numsSize && map[nums[j]]>1) result++;
     return result;
 }
