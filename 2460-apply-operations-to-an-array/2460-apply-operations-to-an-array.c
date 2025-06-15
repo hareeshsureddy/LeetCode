@@ -16,6 +16,7 @@ int* applyOperations(int* nums, int numsSize, int* returnSize) {
      j=i+1;
      while(i<numsSize && j<numsSize){
         while(i<numsSize && nums[i]!=0) i++;
+        if(j<i)
         j=i+1;
         while(j<numsSize && nums[j]==0) j++;
         if(i<numsSize && j<numsSize && !(nums[i]) && nums[j]){
