@@ -1,13 +1,18 @@
 int countSymmetricIntegers(int low, int high) {
     int symmetricCnt=0;
     while(low<=high){
+        if(low>=100 && low<=1000) {
+            low=1001;
+            continue;
+        }
+        int digitCnt=(int)log10(fabs(low)) + 1;
         int temp=low;
-        int digitCnt=0;
-        while(temp){
+    /*    while(temp){
             temp=temp/10;
             digitCnt++;
-        }
+        } 
         temp=low;
+        */
         if(!(digitCnt&1)){
             int sum1=0,sum2=0;
             for(int i=0;i<digitCnt/2;i++){
