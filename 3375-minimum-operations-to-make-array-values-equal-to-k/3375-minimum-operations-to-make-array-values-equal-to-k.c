@@ -1,6 +1,6 @@
-int compare(const void *a, const void *b){
+/* int compare(const void *a, const void *b){
     return *(int*)a-*(int*)b;
-}
+} */
 int minOperations(int* nums, int numsSize, int k) {
     int cnt=0;
     /*
