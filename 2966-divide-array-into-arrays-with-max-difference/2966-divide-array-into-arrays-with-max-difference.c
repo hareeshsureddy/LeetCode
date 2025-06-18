@@ -12,18 +12,18 @@ int** divideArray(int* nums, int numsSize, int k, int* returnSize, int** returnC
     int index=0;
     int** result=(int**)malloc(sizeof(int*)*(numsSize/3));
     *returnColumnSizes=(int*)malloc(*returnSize*sizeof(int));
+    for (int i=0;i<numsSize;i+=3){
+        if((nums[i+2]-nums[i])>k){
+            *returnSize=0;
+            return NULL;
+        }
+    }
     for(int i=0;i<numsSize;i+=3){
-        if((nums[i+2]-nums[i])<=k){
             (*returnColumnSizes)[index]=3;
             result[index]=(int*)malloc(3*sizeof(int));
             result[index][0]=nums[i];
             result[index][1]=nums[i+1];
             result[index++][2]=nums[i+2];
         }
-        else{
-            *returnSize=0;
-            return NULL;
-        }
-    }
     return result;
 }
