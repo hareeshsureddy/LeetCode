@@ -52,7 +52,7 @@ char* addBinary(char* a, char* b) {
         result[index++]=a[i];
             i--;
         }
-        while(i>=0){
+        while(j>=0){
         if(carry){
             if(b[j]=='1'){
             result[index++]='0';
