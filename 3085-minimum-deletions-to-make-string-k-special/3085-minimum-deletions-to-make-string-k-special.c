@@ -14,8 +14,6 @@ int minimumDeletions(char* word, int k) {
                     delete+=(map[j]-map[i]-k);
                 }
             }else if(map[i]-map[j]) delete+=map[j];
-                    else
-                        delete+=0;
         }
         minimumDeletions=fmin(minimumDeletions,delete);
     }
