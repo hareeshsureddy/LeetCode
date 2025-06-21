@@ -1,17 +1,14 @@
 int maxProduct(int* nums, int numsSize) {
-    /*
     int prefix=1,suffix=1,maxProduct=0x80000000;
     for(int i=0;i<numsSize;i++){
-        if(!nums[i]){
-            suffix=1;
-            prefix=1;
-        }
+        if(!suffix) suffix=1;
+        if(!prefix) prefix=1;
         prefix*=nums[i];
         suffix*=nums[numsSize-i-1];
         maxProduct=fmax(maxProduct,fmax(prefix,suffix));
     }
     return maxProduct;
-    */
+    /*
     int max=1,min=1,maxProduct=0x80000000;
     int numsMax=0x80000000;
     for(int i=0;i<numsSize;i++){
@@ -26,5 +23,5 @@ int maxProduct(int* nums, int numsSize) {
          min=fmin(min*nums[i],fmin(temp,nums[i]));
          maxProduct=fmax(maxProduct,max);
      }
-     return fmax(numsMax,maxProduct);
+     return fmax(numsMax,maxProduct); */
 }
