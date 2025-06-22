@@ -16,7 +16,7 @@ int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
     return result; 
 */
         //Approach-2 T.C O(n) & S.C O(1)
-        int zeroFcnt=0;
+ /*       int zeroFcnt=0;
         int TotalProduct=1;
         for (int i=0;i<numsSize;i++){
                 if(nums[i])
@@ -41,5 +41,19 @@ int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
         }
         }
             *returnSize=numsSize;
+            return nums;
+*/
+        //Approach-3 T.C O(n) & S.C O(2n)
+        int left[numsSize],right[numsSize];
+        left[0]=1;
+        right[numsSize-1]=1;
+        for(int i=1;i<numsSize;i++){
+            left[i]=left[i-1]*nums[i-1];
+            right[numsSize-i-1]=right[numsSize-i]*nums[numsSize-i];
+        }
+        for(int i=0;i<numsSize;i++){
+            nums[i]=left[i]* right[i];
+        }
+                    *returnSize=numsSize;
             return nums;
 }
