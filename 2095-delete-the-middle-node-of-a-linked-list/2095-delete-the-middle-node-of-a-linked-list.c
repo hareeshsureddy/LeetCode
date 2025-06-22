@@ -13,21 +13,10 @@ struct ListNode* deleteMiddle(struct ListNode* head) {
         len++;
     }
     if(len==1) {
-            return NULL;
-    }else if(len==2){
-        head->next=NULL;
-        return head;
+        return NULL;
     }
     temp=head;
-    int index=0;
-    while(temp){
-        if(index==len/2){
-            temp->val=temp->next->val;
-            temp->next=temp->next->next;
-            return head;
-        }else
-        temp=temp->next;
-        index++;
-    }
+    for(int i=0;i<len/2-1;i++) temp=temp->next;
+    temp->next=temp->next->next;
     return head;
 }
