@@ -1,13 +1,17 @@
 typedef struct
 {
-    int *arr,size,capacity;
+    int *arr,index,len;
 } RandomizedSet;
 
+/* int hrand(){
+    int val;
+    return val;
+} */
 RandomizedSet* randomizedSetCreate()
 {
     RandomizedSet *set=(RandomizedSet*)malloc(sizeof(RandomizedSet));
     set->arr=NULL;
-    set->capacity=0;
+    set->len=0;
     srand(time(NULL));
     return set;
 }
@@ -16,12 +20,12 @@ bool randomizedSetInsert(RandomizedSet* obj, int val)
 {
     if(obj->arr==NULL)
     {
-        obj->capacity=1;
-        obj->arr=(int*)malloc(obj->capacity*sizeof(int));
-        obj->size=0;
+        obj->len=1;
+        obj->arr=(int*)malloc(obj->len*sizeof(int));
+        obj->index=0;
     }
 
-    for(int i=0;i<obj->size;i++)
+    for(int i=0;i<obj->index;i++)
     {
         if(obj->arr[i]==val)
         {
@@ -29,28 +33,28 @@ bool randomizedSetInsert(RandomizedSet* obj, int val)
         }
     }
 
-    if(obj->size==obj->capacity)
+    if(obj->index==obj->len)
     {
-        obj->capacity*=2;
-        obj->arr=(int*)realloc(obj->arr,obj->capacity*sizeof(int));
+        obj->len+=1;
+        obj->arr=(int*)realloc(obj->arr,obj->len*sizeof(int));
     }
-    obj->arr[obj->size++]=val;
+    obj->arr[obj->index++]=val;
     return true;
 }
 
 bool randomizedSetRemove(RandomizedSet* obj, int val)
 {
-    if(obj->size==0)
+    if(obj->index==0)
     {
         return false;
     }
 
-    for(int i=0;i<obj->size;i++)
+    for(int i=0;i<obj->index;i++)
     {
         if(obj->arr[i]==val)
         {
-            obj->arr[i]=obj->arr[obj->size-1];
-            obj->size--;
+            obj->arr[i]=obj->arr[obj->index-1];
+            obj->index--;
             return true;
         }
     }
@@ -59,11 +63,12 @@ bool randomizedSetRemove(RandomizedSet* obj, int val)
 
 int randomizedSetGetRandom(RandomizedSet* obj)
 {
-    if(obj->size==0)
+    if(obj->index==0)
     {
         return -1;
     }
-    int randomIndex=rand()%obj->size;
+    int randomIndex=rand()%obj->index;
+    //int randomIndex=hrand()%obj->index;
     return obj->arr[randomIndex];
 }
 
