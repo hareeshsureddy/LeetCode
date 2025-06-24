@@ -6,8 +6,32 @@
  * };
  */
 struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
-    int len1=0,len2=0;
+        
+       struct ListNode *temp1=headA;
+       struct ListNode *temp2=headB;
+        while(temp1!=NULL && temp2!=NULL){
+            if(temp1==temp2) return temp1;
+            temp1=temp1->next;
+            temp2=temp2->next;
+        }
+        if(temp1==NULL) temp1=headB;
+        else temp2=headA;
+        while(temp1!=NULL && temp2!=NULL){
+            if(temp1==temp2) return temp1;
+            temp1=temp1->next;
+            temp2=temp2->next;
+        }
+        if(temp1==NULL) temp1=headB;
+        else temp2=headA;
+        while(temp1!=NULL && temp2!=NULL){
+            if(temp1==temp2) return temp1;
+            temp1=temp1->next;
+            temp2=temp2->next;
+        }
+        return NULL;
+   /* int len1=0,len2=0;
     struct ListNode *temp=headA;
+    // Approach-2
     while(temp){
         len1++;
         temp=temp->next;
@@ -26,7 +50,9 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
             headB=headB->next;
             headA=headA->next;
         }
-    /*
+            return NULL;
+        */
+    /* // Approach-1
     struct ListNode **map=(struct ListNode**)malloc(len1*sizeof(struct ListNode*));
     temp=headA;
     int index=0;
@@ -42,6 +68,7 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
         return temp;
         }
         temp=temp->next;
-    }  */
-    return NULL;
+    }  
+        return NULL;
+    */
 }
