@@ -1,6 +1,24 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+ int* findKDistantIndices(int* nums, int numsSize, int key, int k, int* returnSize) {
+        int *result=(int*)calloc(numsSize,sizeof(int));
+        int index=0;
+        for (int j=0;j<numsSize;j++){
+            if(nums[j]!=key) continue;
+            int start=fmax(0,(j-k));
+            int end=fmin(numsSize-1,(j+k));
+            if(index>0)
+            start=(start<=result[index-1])?result[index-1]+1:start;
+            end=(end>=numsSize-1)?numsSize-1:end;
+            while(start<=end){
+                result[index++]=start++;
+            }
+        }
+        *returnSize=index;
+        return result;
+ }
+ /*
 int max(int a, int b){
     if(a>=b) return a;
     return b;
@@ -28,4 +46,4 @@ int* findKDistantIndices(int* nums, int numsSize, int key, int k, int* returnSiz
     }
     *returnSize = index;
     return arr;
-}
+}   */
