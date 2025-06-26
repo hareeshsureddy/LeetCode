@@ -27,13 +27,6 @@ struct ListNode* modifiedList(int* nums, int numsSize, struct ListNode* head) {
     }
     return head;
 }*/
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
 struct ListNode* newListNode(int val, struct ListNode* prev){
     struct ListNode* temp = (struct ListNode*)malloc(sizeof(struct ListNode));
     temp->val = val;
