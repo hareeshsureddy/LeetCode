@@ -23,8 +23,10 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
             if(temp->next){
             temp->val=temp->next->val;
             temp->next=temp->next->next;
+            return head;
             }else{
                 temp1->next=NULL;
+                return head;
             }
         }
         len++;
