@@ -1,4 +1,5 @@
 char kthCharacter(int k) {
+    /*
     char *char_ptr=(char*)malloc(sizeof(char)*k);
     int i=1;
     char_ptr[0]='a';
@@ -10,4 +11,12 @@ char kthCharacter(int k) {
         }
     }
     return char_ptr[k-1];
+    */
+    int bitCnt=0;
+    k--;
+    while(k){
+        bitCnt++;
+        k=k&(k-1);
+    }
+    return 'a'+bitCnt;
 }
