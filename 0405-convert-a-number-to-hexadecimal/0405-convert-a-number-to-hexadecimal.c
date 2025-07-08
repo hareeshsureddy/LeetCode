@@ -1,5 +1,6 @@
 char map[16]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
 char* toHex(int num) {
+    if (!num) return "0";
     uint32_t NUM=(uint32_t)num;
     char *res=(char*)malloc(9*sizeof(char));
     int i=0;
