@@ -1,4 +1,5 @@
-bool isPalindrome(char* s) {
+/* T.C O(n) but 36% beats */
+/* bool isPalindrome(char* s) {
     int len=strlen(s);
     int i=0,j=len-1;
     while(s[i]!='\0'){
@@ -21,8 +22,7 @@ bool isPalindrome(char* s) {
         }
     }
     return true;
-} 
-/*
+}  */
 bool isPalindrome(char* s) {
     if(s==" "){
         return true;
@@ -34,8 +34,14 @@ bool isPalindrome(char* s) {
             S[k++] = tolower(s[i]);
         }
     }
-    
-        S[k] = '\0';
+            S[k] = '\0';
+            printf("%s",S);
+   int i=0;
+    k--;
+    while(i<k){
+        if(S[i++]!=S[k--]) return false;
+    }
+    return true;
     char dest[strlen(S)+1];
     int len = strlen(S);
     for (int i = 0; i < len; i++) {
@@ -45,4 +51,4 @@ bool isPalindrome(char* s) {
     if(strcmp(dest,S)==0)
     return true;
     return false;
-} */
+} 
