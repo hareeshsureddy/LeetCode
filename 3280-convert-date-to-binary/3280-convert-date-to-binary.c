@@ -1,5 +1,5 @@
 char* convertDateToBinary(char* date) {
-    char *res=(char*)malloc(22*sizeof(char));
+    char *res=(char*)malloc(24*sizeof(char));
     int num=0,i=0,j=0;
         num=(date[0]-'0')*1000;
         num+=(date[1]-'0')*100;
