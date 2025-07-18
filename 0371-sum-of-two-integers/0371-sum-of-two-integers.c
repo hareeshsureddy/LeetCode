@@ -1,5 +1,5 @@
 int getSum(int a, int b) {
-    return a+b;
+    //return a+b;
     /*
     int bit_a=0,bit_b=0,carry=0;
     int curr_bit=0,res=0;
@@ -14,7 +14,7 @@ int getSum(int a, int b) {
     return res;
     */
         while (b != 0) {
-           uint32_t carry = (a & b) << 1;
+           uint32_t carry = (uint32_t)(a & b) << 1;
             a ^= b;
             b = carry;
         }
