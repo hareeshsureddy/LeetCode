@@ -30,9 +30,25 @@ void slection_sort(int *nums,int numsSize, char** names){
         names[i]=ptr;
         }
 }
+typedef struct{
+    int heights;
+    char *names;
+}heights_names;
+int compare(const void *a, const void *b){
+    return ((heights_names*)b)->heights-((heights_names*)a)->heights;
+}
 char** sortPeople(char** names, int namesSize, int* heights, int heightsSize, int* returnSize) {
-   // bubble_sort(heights,heightsSize,names);
-    slection_sort(heights,heightsSize,names);
+   //bubble_sort(heights,heightsSize,names);
+   // slection_sort(heights,heightsSize,names);
+   heights_names* data=(heights_names*)malloc(sizeof(heights_names)*namesSize);
+   for(int i=0;i<namesSize;i++){
+    data[i].heights=heights[i];
+    data[i].names=names[i];
+   }
+   qsort(data,namesSize,sizeof(heights_names),compare);
+     for(int i=0;i<namesSize;i++){
+    names[i]=data[i].names;
+   } 
     *returnSize=heightsSize;
     return names;
 }
