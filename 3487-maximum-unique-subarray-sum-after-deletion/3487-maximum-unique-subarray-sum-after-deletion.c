@@ -1,3 +1,4 @@
+/* //Methode-1
 int maxSum(int* nums, int numsSize) {
     // Index 0 corresponds to -100, index 200 corresponds to 100
     int freq[201] = {0};    
@@ -23,4 +24,24 @@ int maxSum(int* nums, int numsSize) {
         return max_num;
     }
     return result;
+} */
+
+//Methode-2
+int maxSum(int* nums, int numsSize) {
+    int sum=0,max=INT_MIN;
+    int map[101]={0};
+    for(int i=0;i<numsSize;i++){
+        if(nums[i]<=0){ 
+            max=(max<nums[i])?nums[i]:max;
+        }
+        else{
+        if(map[nums[i]])   nums[i]=0;
+        else
+        map[nums[i]]=1;
+        sum+=nums[i];
+        }
+    }
+    if(!sum) return max;
+    else
+    return sum;
 }
