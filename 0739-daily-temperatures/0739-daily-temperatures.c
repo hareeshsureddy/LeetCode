@@ -19,7 +19,7 @@ int* dailyTemperatures(int* temperatures, int temperaturesSize, int* returnSize)
 } */
 
 int* dailyTemperatures(int* temperatures, int temperaturesSize, int* returnSize) {
-    int stack[100];
+    int stack[70];
     int index=0;
     int *res=(int*)malloc(sizeof(int)*temperaturesSize);
     res[temperaturesSize-1]=0;
