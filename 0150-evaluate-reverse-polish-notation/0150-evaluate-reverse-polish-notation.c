@@ -7,7 +7,6 @@ int evalRPN(char** tokens, int tokensSize) {
                 case '+':
                 indexx--;
                 stack[indexx-1]=stack[indexx-1]+stack[indexx];
-                printf("%d",stack[indexx-1]);
                 break;
                 case '-':
                 indexx--;
@@ -22,13 +21,11 @@ int evalRPN(char** tokens, int tokensSize) {
                 stack[indexx-1]=stack[indexx-1]/stack[indexx];
                 break;     
                 default:
-                printf("%d",stack[indexx-1]);
                 break;                           
             }
         }else{
             int num=atoi(tokens[i]);
             stack[indexx++]=num;
-            printf("%d ",stack[indexx-1]);
         }
         i++;
     }
