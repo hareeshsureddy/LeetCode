@@ -3,15 +3,14 @@
  */
 int* pivotArray(int* nums, int numsSize, int pivot, int* returnSize) {
     int *res=(int*)malloc(sizeof(int)*numsSize);
-    int index=0;
+    int index=0,equPivot=0;
     for(int i=0;i<numsSize;i++){
         if(nums[i]<pivot)
         res[index++]=nums[i];
+        else if(nums[i]==pivot) equPivot++;
     }
-        for(int i=0;i<numsSize;i++){
-        if(nums[i]==pivot)
-        res[index++]=nums[i];
-    }
+        for(int i=0;i<equPivot;i++)
+        res[index++]=pivot;
         for(int i=0;i<numsSize;i++){
         if(nums[i]>pivot)
         res[index++]=nums[i];
