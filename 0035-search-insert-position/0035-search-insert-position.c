@@ -8,7 +8,6 @@ int searchInsert(int* nums, int numsSize, int target) {
         else
         r=mid-1;
     }
-    printf("%d",mid);
     if(nums[mid]<target)
         return mid+1;
         else
