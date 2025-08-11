@@ -4,16 +4,19 @@
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
 int** flipAndInvertImage(int** image, int imageSize, int* imageColSize, int* returnSize, int** returnColumnSizes) {
+    /*
     int** flipAndInvertImage=(int**)malloc(sizeof(int*)*imageSize);
     for(int i=0;i<imageSize;i++){
         flipAndInvertImage[i]=(int*)malloc(sizeof(int)*imageSize);
-    }
+    } */
     for(int i=0;i<imageSize;i++){
-        for(int j=0;j<imageSize;j++){
-            flipAndInvertImage[i][j]=!(image[i][imageSize-j-1]);
+        for(int j=0;j<(imageSize+1)/2;j++){
+            int temp=!image[i][j];
+            image[i][j]=!image[i][imageSize-j-1];
+            image[i][imageSize-j-1]=temp;
         }
     }
     *returnColumnSizes = imageColSize;
     *returnSize=imageSize;
-    return flipAndInvertImage;
+    return image;
 }
