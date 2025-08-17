@@ -1,6 +1,23 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+  int* sortArrayByParityII(int* nums, int numsSize, int* returnSize) {
+    int e=0,o=1;
+    while(e<numsSize && o<numsSize){
+        if(nums[e]%2==0) e+=2;
+        else if(nums[o]%2) o+=2;
+        else{
+            int temp=nums[e];
+            nums[e]=nums[o];
+            nums[o]=temp;
+            o+=2;
+            e+=2;
+        }
+    }
+    *returnSize=numsSize;
+    return nums;
+}
+ /*
  int* sortArrayByParityII(int* nums, int numsSize, int* returnSize) {
     int *res=(int*)malloc(sizeof(int)*numsSize);
     int e=0,o=1;
@@ -15,7 +32,7 @@
     }
     *returnSize=numsSize;
     return res;
-}
+}*/
 /*
  int* sortArrayByParityII(int* nums, int numsSize, int* returnSize) {
     int i=0;
