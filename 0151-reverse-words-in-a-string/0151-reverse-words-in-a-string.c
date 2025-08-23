@@ -1,3 +1,7 @@
+/* char* reverseWords(char* s) {
+
+} */
+
 char* reverseWords(char* s) {
     int len=strlen(s);
     char *result=(char*)malloc((len+1)*sizeof(char));
@@ -14,4 +18,4 @@ char* reverseWords(char* s) {
     }
     result[idx-1]='\0';
     return result;
-}
+} 
