@@ -3,10 +3,16 @@ int minimumArea(int** grid, int gridSize, int* gridColSize) {
         for (int i=0;i<gridSize;i++){
             for(int j=0;j<*gridColSize;j++){
                 if(grid[i][j]){
+                    maxRow=(maxRow<i)?i:maxRow;
+                    maxCol=(maxCol<j)?j:maxCol;
+                    minRow=(minRow>i)?i:minRow;
+                    minCol=(minCol>j)?j:minCol;
+                    /*
                     maxRow=fmax(maxRow,i);
                     maxCol=fmax(maxCol,j);
                     minRow=fmin(minRow,i);
                     minCol=fmin(minCol,j);
+                    */
                 }
             }
         }
