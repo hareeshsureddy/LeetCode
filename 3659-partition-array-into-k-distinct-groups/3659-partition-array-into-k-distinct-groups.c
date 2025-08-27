@@ -1,3 +1,4 @@
+/*
 int compare(const void *a, const void *b){
     return *(int*)a-*(int*)b;
 }
@@ -13,5 +14,17 @@ bool partitionArray(int* nums, int numsSize, int k) {
         i=j;
     }
     if(j-i>freq) return false;
+    return true;
+}
+*/
+#define SIZE 100001
+int countMap[SIZE];
+bool partitionArray(int* nums, int numsSize, int k) {
+    if(numsSize%k!=0) return false;
+    int freq=numsSize/k;
+    memset(countMap,0,SIZE*sizeof(int));
+    for(int i=0;i<numsSize;i++){
+        if(++countMap[nums[i]]>freq) return false;
+    }
     return true;
 }
