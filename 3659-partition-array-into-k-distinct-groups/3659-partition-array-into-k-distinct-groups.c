@@ -12,6 +12,6 @@ bool partitionArray(int* nums, int numsSize, int k) {
         if(j-i>freq) return false;
         i=j;
     }
-   // if(j-i>k) return false;
+    if(j-i>freq) return false;
     return true;
 }
