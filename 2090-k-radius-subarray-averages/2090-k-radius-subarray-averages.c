@@ -2,6 +2,30 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* getAverages(int* nums, int numsSize, int k, int* returnSize) {
+    int *result=(int*)calloc(numsSize,sizeof(int));
+    *returnSize=numsSize;
+    bool status=false;
+    long long PrefixSum=0;
+    const int divisor=(k*2+1);
+    for(int i=0;i<numsSize;i++){
+        if(i-k>=0 && i+k<numsSize){
+            if(status){
+            PrefixSum=PrefixSum-nums[i-k-1]+nums[i+k];
+            result[i]=PrefixSum/divisor;
+            }
+            else{
+                for(int j=i-k;j<=i+k;j++)
+                PrefixSum+=nums[j];
+                result[i]=PrefixSum/divisor;
+                status=true;
+            }
+        }else
+        result[i]=-1;
+    }
+    return result;
+}
+ /*
+int* getAverages(int* nums, int numsSize, int k, int* returnSize) {
     long long *res=(long long*)calloc(numsSize,sizeof(long long));
         int *result=(int*)calloc(numsSize,sizeof(int));
     *returnSize=numsSize;
@@ -23,4 +47,4 @@ int* getAverages(int* nums, int numsSize, int k, int* returnSize) {
         result[i]=res[i]/(k*2+1);
     }
     return result;
-}
+} */
