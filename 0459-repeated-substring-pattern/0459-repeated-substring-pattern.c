@@ -34,7 +34,7 @@
 
     char *s2 = d + 1;
     s2[l*2-2] = '\0';
-    printf("%s",s2);
+   // printf("%s",s2);
     if(strstr(s2, s) != NULL) {
         return true;
     }
