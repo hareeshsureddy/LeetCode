@@ -10,16 +10,18 @@ char* removeDuplicateLetters(char* s) {
     }
     taken[s[0]-'a']=true;
     for(int i=1;i<len;i++){
-        if(taken[s[i]-'a']) continue;
+        int k=s[i]-'a';
+        if(taken[k]) continue;
         while(index>0 && s[index-1]>s[i]){
-            if(map[s[index-1]-'a']>i){
+            int j=s[index-1]-'a';
+            if(map[j]>i){
+                taken[j]=false;
                 index--;
-                taken[s[index]-'a']=false;
             }else
             break;
         }
         s[index++]=s[i];
-        taken[s[i]-'a']=true;
+        taken[k]=true;
     }
     s[index]='\0';
     return s;
