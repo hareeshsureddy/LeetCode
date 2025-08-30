@@ -57,6 +57,7 @@
         }
     }
     free(index);
+    free(map);
     return s;
  }
  
