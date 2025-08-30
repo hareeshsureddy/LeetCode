@@ -1,5 +1,5 @@
-bool repeatedSubstringPattern(char* s) {
-    int len=strlen(s);
+ bool repeatedSubstringPattern(char* s) {
+  /*  int len=strlen(s);
     char *temp=(char*)malloc(sizeof(char)*(len+1));
     for(int i=len/2;i>0;i--){
         if(len%i==0){
@@ -22,4 +22,22 @@ bool repeatedSubstringPattern(char* s) {
     }
     return true;
     */
-}
+
+    int l = strlen(s);
+    if(l <= 1) {
+        return false;
+    }
+
+    char d[2*l+1];
+    strcpy(d, s);
+    strcat(d, s);
+
+    char *s2 = d + 1;
+    s2[l*2-2] = '\0';
+    printf("%s",s2);
+    if(strstr(s2, s) != NULL) {
+        return true;
+    }
+
+    return false;
+} 
