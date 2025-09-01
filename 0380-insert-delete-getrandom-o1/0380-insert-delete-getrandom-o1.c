@@ -23,6 +23,8 @@ bool randomizedSetInsert(RandomizedSet* obj, int val)
         obj->len=1;
         obj->arr=(int*)malloc(obj->len*sizeof(int));
         obj->index=0;
+        obj->arr[obj->index++]=val;
+        return true;
     }
 
     for(int i=0;i<obj->index;i++)
@@ -35,7 +37,8 @@ bool randomizedSetInsert(RandomizedSet* obj, int val)
 
     if(obj->index==obj->len)
     {
-        obj->len+=1;
+        //obj->len+=1;
+        obj->len*=2;
         obj->arr=(int*)realloc(obj->arr,obj->len*sizeof(int));
     }
     obj->arr[obj->index++]=val;
