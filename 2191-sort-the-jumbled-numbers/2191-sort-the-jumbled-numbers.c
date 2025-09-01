@@ -31,5 +31,6 @@ int* sortJumbled(int* mapping, int mappingSize, int* nums, int numsSize, int* re
     for(int i=0;i<numsSize;i++){
         res[i]=nums[jData[i].index];
     }
+    free(jData);
     return res;
 }
