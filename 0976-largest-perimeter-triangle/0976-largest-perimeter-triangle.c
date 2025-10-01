@@ -1,3 +1,19 @@
+
+int compare(const void *a, const void *b) {
+    return (*(int*)b - *(int*)a);
+}
+
+int largestPerimeter(int* nums, int numsSize) {
+    qsort(nums, numsSize, sizeof(int), compare);
+    for (int i = 0; i < numsSize - 2; i++) {
+        if (nums[i] < nums[i+1] + nums[i+2]) {
+            return nums[i] + nums[i+1] + nums[i+2];
+        }
+    }
+    return 0;
+} 
+
+/*
 int largestPerimeter(int* nums, int numsSize) {
     int largestPerimeter=0;
     for(int i=0;i<numsSize;i++){
@@ -11,4 +27,4 @@ int largestPerimeter(int* nums, int numsSize) {
         }
     }
     return largestPerimeter;
-}
+}*/
