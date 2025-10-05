@@ -18,6 +18,7 @@ bool canPlaceFlowers(int* flowerbed, int flowerbedSize, int n) {
                 flowerbed[i]=1;
                 cnt++;
         }
+        if(cnt>=n) return true;
     }
     if(!flowerbed[flowerbedSize-1] && !flowerbed[flowerbedSize-2])
         cnt++;
