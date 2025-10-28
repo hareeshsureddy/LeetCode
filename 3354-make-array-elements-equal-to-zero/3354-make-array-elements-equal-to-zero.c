@@ -1,3 +1,25 @@
+int countValidSelections(int* nums, int numsSize) {
+    int countValidSelections=0;
+    int TotalSum=0;
+    for(int i=0;i<numsSize;i++){
+        if(nums[i]){
+            TotalSum+=nums[i];
+        }
+    }
+    int currSum=0;
+    for(int i=0;i<numsSize;i++){
+        currSum+=nums[i];
+        int rightSum=TotalSum-currSum;
+        if(!nums[i]){
+            if(currSum==rightSum)
+            countValidSelections+=2;
+            else if(abs(currSum-rightSum)==1)
+             countValidSelections+=1;
+        }
+    }
+    return countValidSelections;
+}
+/*
 void operations(int *nums,int numsSize, int idx,int dir){
         while(idx<numsSize && idx>=0){
             if(dir<0){
@@ -40,5 +62,5 @@ int countValidSelections(int* nums, int numsSize) {
             countValidSelections++;
         }
     }
-    return countValidSelections;
-}
+    return countValidSelections; 
+} */
