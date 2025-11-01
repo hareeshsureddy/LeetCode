@@ -5,6 +5,28 @@
  *     struct ListNode *next;
  * };
  */
+#define SIZE 100001
+static bool map[SIZE];
+struct ListNode* modifiedList(int* nums, int numsSize, struct ListNode* head) {
+    for(int i=0;i<numsSize;i++){
+        map[nums[i]]=true;
+    }
+    struct ListNode *res=head;
+    struct ListNode *temp=head;
+    struct ListNode *temp1=head;
+    while(head){
+        if(!(map[head->val])){
+        temp1=temp;
+        temp->val=head->val;
+        temp=temp->next;
+        }
+        head=head->next;
+    }
+    temp1->next=NULL;
+    memset(map,0,sizeof(map));
+    return res;
+}
+
 /*
 struct ListNode* modifiedList(int* nums, int numsSize, struct ListNode* head) {
     struct ListNode* temp=NULL;
@@ -27,6 +49,7 @@ struct ListNode* modifiedList(int* nums, int numsSize, struct ListNode* head) {
     }
     return head;
 }*/
+/*
 struct ListNode* newListNode(int val, struct ListNode* prev){
     struct ListNode* temp = (struct ListNode*)malloc(sizeof(struct ListNode));
     temp->val = val;
@@ -60,4 +83,4 @@ struct ListNode* modifiedList(int* nums, int numsSize, struct ListNode* head) {
         prev = head;
     }
     return reverse(prev);
-}
+} */
