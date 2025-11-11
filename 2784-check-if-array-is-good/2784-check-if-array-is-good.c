@@ -3,6 +3,7 @@ int compare(const void *a, const void *b){
 }
 
 bool isGood(int* nums, int numsSize) {
+    if(numsSize==1) return false;
     qsort(nums,numsSize,sizeof(int),compare);
     if(nums[numsSize-1]!=nums[numsSize-2]) return false;
     if(numsSize!=(nums[numsSize-1]+1)) return false;
