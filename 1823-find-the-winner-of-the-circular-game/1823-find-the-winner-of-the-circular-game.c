@@ -8,10 +8,8 @@ int findTheWinner(int n, int k) {
         i=idx;
         while(idx<n-1){
             queue[idx]=queue[idx+1];
-            printf("%d ",queue[idx]);
             idx++;
         }
-        printf("\n");
         n--;
     }
     return queue[0];
