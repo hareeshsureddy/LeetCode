@@ -2,7 +2,7 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
  int* minBitwiseArray(int* nums, int numsSize, int* returnSize) {
-    int *res=(int*)calloc(numsSize,sizeof(int));
+    int *res=(int*)malloc(numsSize*sizeof(int));
     *returnSize=numsSize;
     for(int i=0;i<numsSize;i++){
         int num=nums[i];
