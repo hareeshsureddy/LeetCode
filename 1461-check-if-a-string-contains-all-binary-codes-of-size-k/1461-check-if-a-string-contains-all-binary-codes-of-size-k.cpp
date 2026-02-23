@@ -4,8 +4,8 @@ public:
         unordered_set<string> st;
         int n=s.length();
         int codes=1<<k;
-        for(int i=k; i<=n;i++){
-            string sub=s.substr(i-k,k);
+        for(int i=0; i<=n-k;i++){
+            string sub=s.substr(i,k);
 
             if(!st.count(sub)){
                 st.insert(sub);
