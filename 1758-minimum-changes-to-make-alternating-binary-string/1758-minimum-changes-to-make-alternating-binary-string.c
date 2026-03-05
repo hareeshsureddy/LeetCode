@@ -1,3 +1,4 @@
+#define MIN(x,y) ((x<y)?x:y)
 int minOperations(char* s) {
     uint16_t len=strlen(s);
     uint16_t result1=0,result2=0;
@@ -35,14 +36,16 @@ int minOperations(char* s) {
          result2++;
         }                       */
         //Method-4  
-        if(i&1){
+     /*   if(i&1){
         if(s[i]!='1')
         result1++;
         }else{
          if(s[i]!='0') 
          result1++;
-        }  
+        }           */
+    //Method-5  
+     result1+=(i&1)^(s[i]-'0');
     }
     result2=len-result1;
-    return (result1<result2)?result1:result2;
+    return MIN(result1,result2);
 }
