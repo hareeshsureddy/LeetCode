@@ -5,7 +5,7 @@ int xorAfterQueries(int* nums, int numsSize, int** queries, int queriesSize, int
         int v=queries[q][3];
         int k=queries[q][2];
         while(idx<=r){
-            nums[idx] = (nums[idx] * v) % (109 + 7);
+            nums[idx] = ((long long)nums[idx] * v) % (1000000007);
             idx+=k;
         }
     }
